@@ -29,6 +29,8 @@ jobs:
                   source: ${{ matrix.java.source }}
             - name: Build with Maven
               run: |
+                mvn -B clean install -DskipTests --file pom.xml
+                cd smallrye-reactive-messaging-amqp
                 mvn -B clean verify -Dtest-containers=true --file pom.xml
 
 
